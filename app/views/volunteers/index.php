@@ -1,4 +1,4 @@
-<?php require APPROOT.'/views/inc/header.php'; ?>
+<?php require APPROOT.'/views/inc/headervol.php'; ?>
 <div class="container">
     <h1 class="mb-3 text-center">Volunteer</h1>
     <table class="table">
@@ -22,8 +22,16 @@
       <td><?php echo $data['volunteer']->event ; ?></td>
     </tr>
     <tr>
+      <th scope="row">Email :</th>
+      <td><?php echo $data['volunteer']->email ; ?></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone Number :</th>
+      <td><?php echo $data['volunteer']->phoneNo; ?></td>
+    </tr>
+    <tr>
       <th scope="row">Tokens Available :</th>
-      <td><?php echo $data['volunteer']->event ; ?></td>
+      <td><?php echo $data['volunteer']->token ; ?></td>
     </tr>
   </tbody>
 </table>

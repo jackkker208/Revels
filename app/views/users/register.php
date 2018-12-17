@@ -26,6 +26,30 @@
                         <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
                     </div>
                     <div class="form-group">
+                    <label for="category">Select Your Category:</label>
+                    <select name="category" class = "form-control form-control-lg <?php echo (!empty($data['category_err']))? 'is-invalid' : ''; ?>">
+                        <option value="none">None</option>
+                        <option value="checker">Checker</option>
+                        <option value="category head">Category Head</option>
+                        <option value="event head">Event Head</option>
+                        <option value="organizer">Organizer</option>
+                        <option value="organizerhrd">Organizer(HRD)</option>
+                        <option value="volunteer">Volunteer</option>
+                    </select>
+                    <span class="invalid-feedback"><?php echo $data['category_err']; ?></span>
+                    </div>
+                    <div class="form-group">
+                    <label for="event">Select Your Event:</label>
+                    <select name="event" class = "form-control form-control-lg <?php echo (!empty($data['event_err']))? 'is-invalid' : ''; ?>">
+                        <option value="none">None</option>
+                        <option value="singing">Singing</option>
+                        <option value="model making">Model Making</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="racing">Racing</option>
+                    </select>
+                    <span class="invalid-feedback"><?php echo $data['event_err']; ?></span>
+                    </div>
+                    <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" name="password" class = "form-control form-control-lg <?php echo (!empty($data['password_err']))? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
                         <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>

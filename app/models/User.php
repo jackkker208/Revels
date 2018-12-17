@@ -9,7 +9,7 @@
 
         //Register
         public function register($data){
-            $this->db->query('INSERT INTO users (name, regNo ,phoneNo, email, category, event, password) VALUES(:name, :regNo , :phoneNo, :email, :category, :event, :password)');
+            $this->db->query('INSERT INTO users (name, regNo ,phoneNo, email, category, event, token, password) VALUES(:name, :regNo , :phoneNo, :email, :category, :event, :token, :password)');
             //Binding
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':regNo', $data['regNo']);
@@ -17,6 +17,7 @@
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':category', $data['category']);
             $this->db->bind(':event', $data['event']);
+            $this->db->bind(':token', $data['token']);
             $this->db->bind(':password', $data['password']);
 
             //Excecute 
@@ -30,6 +31,18 @@
         public function findUserByRegNo($regNo){
             $this->db->query('SELECT * FROM users WHERE regNo= :regNo');
             $this->db->bind(':regNo', $regNo);
+            $row = $this->db->single();
+
+            if($this->db->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function findUserByCategory($category){
+            $this->db->query('SELECT * FROM users WHERE category= :category');
+            $this->db->bind(':category', $category);
             $row = $this->db->single();
 
             if($this->db->rowCount() > 0){
@@ -68,6 +81,34 @@
             $this->db->bind(':id', $data['id']);
             $this->db->bind(':category', $data['category']);
             $this->db->bind(':event', $data['event']);
+
+            //Excecute 
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        public function updateUserToken($user){
+            $this->db->query('UPDATE users SET token = :token WHERE id = :id');
+            //Binding
+            $this->db->bind(':id', $user->id);
+            $this->db->bind(':token', $user->token);
+
+            //Excecute 
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function updateUserTokenSpend($data){
+            $this->db->query('UPDATE users SET token = :token WHERE id = :id');
+            //Binding
+            $this->db->bind(':id', $data['id']);
+            $this->db->bind(':token', $data['token']);
 
             //Excecute 
             if($this->db->execute()){

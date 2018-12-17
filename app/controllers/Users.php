@@ -16,12 +16,15 @@
                     'regNo' => trim($_POST['regNo']),
                     'phoneNo' => trim($_POST['phoneNo']),
                     'email' => trim($_POST['email']),
-                    'category' => '',
-                    'event' => '',
+                    'category' => $_POST['category'],
+                    'event' => $_POST['event'],
+                    'token' => 0,
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'name_err' => '',
                     'reg_err' => '',
+                    'category_err' => '',
+                    'event_err' => '',
                     'phone_err' => '',
                     'email_err' => '',
                     'password_err' => '',
@@ -50,9 +53,13 @@
                     $data['name_err'] = 'Please enter name';
                 }
 
-                // if($data['category'] == 'None'){
-                //     $data['category_err'] = 'Please enter Your Field';
-                // }
+                if($data['category'] == 'None'){
+                    $data['category_err'] = 'Please enter Your Field';
+                }
+
+                if($data['event'] == 'None'){
+                    $data['event_err'] = 'Please enter Your Field';
+                }
 
                 if(empty($data['password'])){
                     $data['password_err'] = 'Please enter password';
@@ -67,7 +74,7 @@
                 }
 
                 //Making sure err is empty
-                if(empty($data['email_err']) && empty($data['phone_err']) && empty($data['reg_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+                if(empty($data['email_err']) && empty($data['event_err']) && empty($data['category_err']) && empty($data['phone_err']) && empty($data['reg_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                     //Resgister User
                     if($this->userModel->register($data)){
@@ -90,11 +97,14 @@
                     'email' => '',
                     'category' => '',
                     'event' => '',
+                    'token' => 0,
                     'password' => '',
                     'confirm_password' => '',
                     'name_err' => '',
                     'reg_err' => '',
                     'phone_err' => '',
+                    'category_err' => '',
+                    'event_err' => '',
                     'email_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''           
@@ -176,6 +186,14 @@
                 redirect('volunteers');
             }elseif($_SESSION['user_category'] == 'category head'){
                 redirect('categoryheads');
+            }elseif($_SESSION['user_category'] == 'event head'){
+                redirect('eventheads');
+            }elseif($_SESSION['user_category'] == 'organizer'){
+                redirect('organizers');
+            }elseif($_SESSION['user_category'] == 'organizerhrd'){
+                redirect('organizerhrds');
+            }elseif($_SESSION['user_category'] == 'checker'){
+                redirect('checkers');
             }
             
         }

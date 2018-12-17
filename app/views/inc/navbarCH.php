@@ -10,7 +10,7 @@
         <a class="nav-link" href="<?php echo URLROOT; ?>">Home</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo URLROOT; ?>admins/confirm">Confirm</a>
+        <a class="nav-link" href="<?php echo URLROOT; ?>categoryheads/token">Tokens</a>
       </li>
     </ul>
 

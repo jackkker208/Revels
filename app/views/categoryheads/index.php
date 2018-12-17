@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <th scope="row">Tokens Available :</th>
-      <td><?php echo $data['categoryHead']->event ; ?></td>
+      <td><?php echo $data['categoryHead']->token ; ?></td>
     </tr>
   </tbody>
 </table>
