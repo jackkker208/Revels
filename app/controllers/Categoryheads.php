@@ -8,6 +8,7 @@
         }
 
         public function index(){
+            
             $categoryHead = $this->userModel->getUserByRegNo($_SESSION['user_regNo']);
 
             $data = [

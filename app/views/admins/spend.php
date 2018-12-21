@@ -1,3 +1,4 @@
+<?php  if($_SESSION['user_category'] == 'admin') :?>
 <?php require APPROOT.'/views/inc/headerCH.php'; ?>
 <h1 class="text-center">Spend Your Tokens</h1>
                 <form action="<?php echo URLROOT;?>admins/spend" method="post">
@@ -13,5 +14,8 @@
                         </div>
                     </div>
                 </form>
-
+</div>
+<?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

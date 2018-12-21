@@ -1,3 +1,4 @@
+<?php  if($_SESSION['user_category'] == 'organizer') :?>
 <?php require APPROOT.'/views/inc/headerOrg.php'; ?>
 <div class="container">
     <h1 class="mb-3 text-center">Organizer</h1>
@@ -36,4 +37,8 @@
   </tbody>
 </table>
 </div>
+</div>
+<?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

@@ -132,6 +132,20 @@
                 return false;
             }
         }
+
+        public function updateUserTokenBuyer($data){
+            $this->db->query('UPDATE users SET token = :token WHERE id = :id');
+            //Binding
+            $this->db->bind(':id', $data['user']->id);
+            $this->db->bind(':token', $data['user']->token);
+
+            //Excecute 
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
 

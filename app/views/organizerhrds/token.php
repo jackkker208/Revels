@@ -1,3 +1,4 @@
+<?php  if($_SESSION['user_category'] == 'organizerhrd') :?>
 <?php require APPROOT.'/views/inc/headerHRD.php'; ?>
 <h1 class="mb-3 text-center">Give Token To Organizers</h1>
 <?php foreach($data['user'] as $categoryHead) : ?>
@@ -13,4 +14,8 @@
         </div>
     <?php endif ; ?>
  <?php endforeach ; ?>
+ </div>
+<?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

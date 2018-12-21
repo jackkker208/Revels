@@ -1,4 +1,6 @@
+<?php  if($_SESSION['user_category'] == 'category head') :?>
 <?php require APPROOT.'/views/inc/headerCH.php'; ?>
+
     <h1 class="mb-3 text-center">Category Head</h1>
     <table class="table">
   <thead class = "thead-dark">
@@ -26,4 +28,8 @@
     </tr>
   </tbody>
 </table>
+</div>
+<?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

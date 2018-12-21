@@ -1,3 +1,4 @@
+<?php  if($_SESSION['user_category'] == 'volunteer') :?>
 <?php 
     require APPROOT.'/views/inc/headervol.php';
 ?>
@@ -15,5 +16,8 @@
                         </div>
                     </div>
                 </form>
-
+                </div>
+<?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

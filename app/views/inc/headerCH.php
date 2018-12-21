@@ -10,5 +10,6 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
 </head>
 <body>
+    <?php  if($_SESSION['user_category'] == 'category head') :?>
     <?php require APPROOT.'/views/inc/navbarCH.php'; ?> 
     <div class="container">

@@ -20,11 +20,32 @@
         public function buy(){
             $user = $this->userModel->getUserByRegNo($_SESSION['user_regNo']);
 
-            $data = [
-                'user' => $user
-            ];
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $this->view('checkers/buy', $data);
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                    $data = [
+                        'user' => $user,
+                        'content' => $_POST['content']
+                    ];
+                    $temp = $data['content'];
+                    $int_temp = (int)$temp;
+                    $count = $data['user']->token;
+                    $count = $count + $int_temp;
+                    $data['user']->token = $count;
+                    if($this->userModel->updateUserTokenBuyer($data)){
+                        redirect('admins/token');
+                    }else{
+                        die("Something went wrong");
+                    }
+
+                }else{
+                    $data = [
+                        'user' => $user,
+                        'content' => ''
+                    ];
+    
+                    $this->view('checkers/buy', $data);
+                }
         }
 
     }

@@ -5,11 +5,14 @@
             if(!isLoggedIn()){
                 redirect('users/login');
             }   
+
+            
+
             $this->userModel = $this->model('User');
         }
 
         public function index(){
-            
+
                 $admins = $this->userModel->getUserByRegNo($_SESSION['user_regNo']);
 
                 $data = [
@@ -17,9 +20,8 @@
                 ];
     
                 $this->view('admins/index', $data);
-            
-           
         }
+
 
         public function token(){
             $categoryHeads = $this->userModel->getAll();

@@ -1,3 +1,4 @@
+<?php  if($_SESSION['user_category'] == 'admin') :?>
 <?php require APPROOT.'/views/inc/headerAdmin.php'; ?>
 <h1 class="mb-3 text-center">Give Token To Members</h1>
 <?php foreach($data['categoryHeads'] as $categoryHead) : ?>
@@ -14,4 +15,8 @@
         </div>
     <?php endif ; ?>
  <?php endforeach ; ?>
+</div>
+ <?php else : ?>
+<?php redirect($_SESSION['user_category'].'s'); ?>
+<?php  endif ; ?>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
