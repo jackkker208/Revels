@@ -15,7 +15,6 @@
 
       });
 
-	  scanner.setConfig(Symbol.QRCODE, Config.ENABLE, 1);
 
       $("#scan").on('click', function() {
         Instascan.Camera.getCameras().then(function (cameras) {

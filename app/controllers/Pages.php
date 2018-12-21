@@ -49,7 +49,7 @@
         public function about(){
             $data = [
                 'title' => 'About Us',
-                'description' => 'What we do is We make Admin Login Easier'
+                'description' => 'v4'
             ];
             $this->view('pages/about', $data);
         }

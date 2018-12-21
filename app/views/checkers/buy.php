@@ -1,7 +1,7 @@
 <?php  if($_SESSION['user_category'] == 'checker') :?>
 <?php require APPROOT.'/views/inc/headerCheck.php'; ?>
 <div class="container" style="text-align: center">
-		<h1> QR Code </h1>
+		<h1> Scan </h1>
 		<br><br>
 
 		<video id="preview"></video>
